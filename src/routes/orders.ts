@@ -3,17 +3,17 @@ import { index, show, store } from '../controllers/order_controller'
 const router = express.Router()
 
 /**
- * GET /books
+ * GET /orders
  */
 router.get('/', index)
 
 /**
- * GET /books/:bookId
+ * GET /orders/:orderId
  */
 router.get('/:bookId', show)
 
 /**
- * POST /books
+ * POST /order
  */
 router.post('/', store)
 
