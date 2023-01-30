@@ -18,10 +18,11 @@ export const index = async (req: Request, res: Response) => {
 
 // GET A SINGLE ORDER AND IT'S ORDER ITEMS
 export const show = async (req: Request, res: Response) => {
+    const orderId = Number(req.params.bookId)
     try {
         const order = await prisma.order.findUniqueOrThrow({
             where: {
-                id: id,
+                id: orderId,
             },
             include: {
                 items: true
