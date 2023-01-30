@@ -6,3 +6,36 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model Product {
+  id             Int      @id @default(autoincrement()) @db.UnsignedInt
+  name           String
+  description    String
+  price          Int
+  images         Json
+  stock_status   String
+  stock_quantity Int
+  on_sale        Boolean?
+}
+
+model Order {
+  id                  Int       @id @default(autoincrement()) @db.UnsignedInt
+  customer_first_name String
+  customer_last_name  String
+  customer_address    String
+  customer_postcode   String //max 6
+  customer_city       String
+  customer_email      String
+  customer_phone      String?
+  order_total         String
+  order_date          DateTime?
+  created_at          DateTime?
+  updated_at          DateTime?
+}
+
+model OrderItems {
+  product_id Int @id @default(autoincrement()) @db.UnsignedInt
+  qty        Int
+  item_price Int
+  item_total Int
+}
