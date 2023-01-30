@@ -33,3 +33,40 @@ export const show = async (req: Request, res: Response) => {
         res.status(500).send({ message: "Something went wrong"})
     }
 }
+
+// CREATE A ORDER
+export const store = async (req: Request, res: Response) => {
+    try {
+        const order = await prisma.order.create({
+            data: {
+                customer_first_name: req.body.customer_first_name,
+                customer_last_name: req.body.customer_last_name,
+                customer_address: req.body.customer_address,
+                customer_postcode: req.body.customer_postcode,
+                customer_city: req.body.customer_city,
+                customer_email: req.body.customer_email,
+                customer_phone: req.body.customer_phone,
+                order_total: req.body.order_total,
+                order_date: req.body.order_date,
+                created_at: new Date(),
+                // updated_at: new
+            }
+        })
+
+        res.send({
+			status: "success",
+			data: order,
+		})
+
+    } catch (err) {
+        res.status(500).send({status: "error", message: "Something went wrong" })
+    }
+}
+
+// UPDATE A ORDER??
+export const update = async (req: Request, res: Response) => {
+}
+
+// DELETE AN ORDER??
+export const destroy = async (req: Request, res: Response) => {
+}
