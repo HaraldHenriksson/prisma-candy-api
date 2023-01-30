@@ -19,7 +19,7 @@ model Product {
 }
 
 model Order {
-  id                  Int       @id @default(autoincrement()) @db.UnsignedInt
+  id                  Int          @id @default(autoincrement()) @db.UnsignedInt
   customer_first_name String
   customer_last_name  String
   customer_address    String
@@ -31,11 +31,13 @@ model Order {
   order_date          DateTime?
   created_at          DateTime?
   updated_at          DateTime?
+  items               OrderItems[]
 }
 
 model OrderItems {
-  product_id Int @id @default(autoincrement()) @db.UnsignedInt
+  product_id Int   @id @default(autoincrement()) @db.UnsignedInt
   qty        Int
   item_price Int
   item_total Int
+  order      Order @relation(fields: [product_id], references: [id])
 }
