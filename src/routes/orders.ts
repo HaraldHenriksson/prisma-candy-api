@@ -10,7 +10,7 @@ router.get('/', index)
 /**
  * GET /orders/:orderId
  */
-router.get('/:bookId', show)
+router.get('/:orderId', show)
 
 /**
  * POST /order
