@@ -31,7 +31,7 @@ export const show = async (req: Request, res: Response) => {
                 items: true
             },
         })
-        return order
+        res.send(order)
     } catch (err) {
         res.status(500).send({ message: "Something went wrong"})
     }
