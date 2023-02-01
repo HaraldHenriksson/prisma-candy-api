@@ -1,5 +1,6 @@
 import express from 'express'
 import { index, show, store } from '../controllers/order_controller'
+import { orderProductRules } from "../validations/order_rules"
 const router = express.Router()
 
 /**
@@ -15,6 +16,6 @@ router.get('/:orderId', show)
 /**
  * POST /order
  */
-router.post('/', store)
+router.post('/', orderProductRules, store)
 
 export default router
