@@ -9,3 +9,5 @@ router.get('/', index)
  * GET /resource/:resourceId
  */
 router.get('/:orderItemsId', show)
+
+export default router
