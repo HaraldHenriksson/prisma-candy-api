@@ -1,6 +1,6 @@
 import express from 'express'
 import { body } from 'express-validator'
-import { index, show, store, update, destroy } from '../controllers/_controller'
+import { index, show, store } from '../controllers/product_controller'
 const router = express.Router()
 
 /**
@@ -17,3 +17,5 @@ router.get('/:productId', show)
  * POST /resource
  */
 router.post('/', [], store)
+
+export default router

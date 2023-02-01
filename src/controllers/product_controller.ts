@@ -9,7 +9,7 @@ import prisma from '../prisma'
 export const index = async (req: Request, res: Response) => {
     try {
         const products = await prisma.product.findMany()
-        return products
+        res.send(products)
     } catch (err) {
         res.status(500).send({ message: "Something went wrong"})
     }
@@ -19,9 +19,11 @@ export const index = async (req: Request, res: Response) => {
  * Get a single resource
  */
 export const show = async (req: Request, res: Response) => {
+    const productId = Number(req.params.productId)
+
     try {
         const products = await prisma.product.findUniqueOrThrow()
-        return products
+        res.send(productId)
     } catch (err) {
         res.status(500).send({ message: "Something went wrong"})
     }
