@@ -22,8 +22,12 @@ export const show = async (req: Request, res: Response) => {
     const productId = Number(req.params.productId)
 
     try {
-        const products = await prisma.product.findUniqueOrThrow()
-        res.send(productId)
+        const products = await prisma.product.findUniqueOrThrow({
+            where: {
+                id: productId
+            }
+        })
+        res.send(products)
     } catch (err) {
         res.status(500).send({ message: "Something went wrong"})
     }
