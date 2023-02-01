@@ -40,6 +40,7 @@ export const show = async (req: Request, res: Response) => {
 // CREATE A ORDER
 export const store = async (req: Request, res: Response) => {
     try {
+        
         const order = await prisma.order.create({
             data: {
                 customer_first_name: req.body.customer_first_name,
@@ -50,6 +51,9 @@ export const store = async (req: Request, res: Response) => {
                 customer_email: req.body.customer_email,
                 customer_phone: req.body.customer_phone,
                 order_total: req.body.order_total,
+                items: {
+                    create: req.body.orderItems
+                },
                 // order_date: req.body.order_date,
                 // created_at: new Date(),
                 // updated_at: new
