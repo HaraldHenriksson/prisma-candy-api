@@ -37,7 +37,8 @@ export const show = async (req: Request, res: Response) => {
  * Create a resource
  */
 export const store = async (req: Request, res: Response) => {
-    const product = await prisma.product.create({
+    try {
+        const product = await prisma.product.create({
         data: {
             name: req.body.name,
             description: req.body.description,
@@ -49,4 +50,11 @@ export const store = async (req: Request, res: Response) => {
             order_items: req.body.stock_items,    
         }
     })
+
+    return res.send(product)
+    
+    } catch (err) {
+        return res.status(500).send({ message: "Something went wrong" })
+    }
+    
 }
