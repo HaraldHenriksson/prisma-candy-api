@@ -9,7 +9,12 @@ import prisma from '../prisma'
 export const index = async (req: Request, res: Response) => {
     try {
         const products = await prisma.product.findMany()
-        res.send(products)
+        
+        res.send({
+            status: "success",
+            data: products,
+        })
+
     } catch (err) {
         res.status(500).send({ message: "Something went wrong"})
     }
@@ -27,7 +32,12 @@ export const show = async (req: Request, res: Response) => {
                 id: productId
             }
         })
-        res.send(products)
+
+        res.send({
+            status: "success",
+            data: products,
+        })
+
     } catch (err) {
         res.status(500).send({ message: "Something went wrong"})
     }
@@ -51,8 +61,11 @@ export const store = async (req: Request, res: Response) => {
         }
     })
 
-    return res.send(product)
-    
+    res.send({
+        status: "success",
+        data: product,
+    })
+
     } catch (err) {
         return res.status(500).send({ message: "Something went wrong" })
     }
