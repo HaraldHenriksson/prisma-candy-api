@@ -10,7 +10,7 @@ const debug = Debug('prisma-candy-api:order_controller')
 export const index = async (req: Request, res: Response) => {
     try {
         const orders = await prisma.order.findMany()
-        return orders
+        res.send(orders)
     } catch (err) {
         res.status(500).send({ message: "Something went wrong"})
     }
@@ -47,8 +47,8 @@ export const store = async (req: Request, res: Response) => {
                 customer_email: req.body.customer_email,
                 customer_phone: req.body.customer_phone,
                 order_total: req.body.order_total,
-                order_date: req.body.order_date,
-                created_at: new Date(),
+                // order_date: req.body.order_date,
+                // created_at: new Date(),
                 // updated_at: new
             }
         })

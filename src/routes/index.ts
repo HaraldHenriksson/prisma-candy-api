@@ -1,5 +1,6 @@
 import express from "express"
 import products from "./products"
+import orders from "./orders"
 import resource from './_router'
 
 // instantiate a new router
@@ -29,6 +30,6 @@ router.use('/product', products)
 /**
  * /orders
  */
-// router.use('/orders', orders)
+ router.use('/orders', orders)
 
 export default router
