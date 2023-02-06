@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = env("https://fine-red-stingray-garb.cyclic.app")
+  url      = env("DATABASE_URL")
 }
 
 model Product {
