@@ -5,7 +5,7 @@
 import { body } from 'express-validator'
 
 export const orderProductRules = [
-    body('customer_first_name').isString(),
+    body('customer_first_name').isString().withMessage('Has to be string'),
     body('customer_last_name').isString(),
     body('customer_address').isString(),
     body('customer_postcode').isString().isLength({ min: 4, max: 6 }).withMessage('Has to be 4-6 chars long'),
