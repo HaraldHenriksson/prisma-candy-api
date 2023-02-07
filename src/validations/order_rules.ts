@@ -10,6 +10,6 @@ export const orderProductRules = [
     body('customer_address').isString().withMessage('has to be a string').bail(),
     body('customer_postcode').isString().isLength({ min: 4, max: 6 }).withMessage('Has to be 4-6 chars long').bail(),
     body('customer_city').isString().withMessage('has to be a string').bail(),
-    body('customer_email').isEmail().withMessage('has to be email').bail(),
+    body('customer_email').isEmail(),
     body('order_total').isInt({ min: 1 }),
 ]
