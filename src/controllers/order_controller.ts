@@ -67,11 +67,3 @@ export const store = async (req: Request, res: Response) => {
         return res.status(500).send({ message: "Something went wrong" })
     }
 }
-
-// UPDATE A ORDER??
-export const update = async (req: Request, res: Response) => {
-}
-
-// DELETE AN ORDER??
-export const destroy = async (req: Request, res: Response) => {
-}
