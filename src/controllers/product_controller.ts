@@ -47,6 +47,13 @@ export const show = async (req: Request, res: Response) => {
  * Create a resource
  */
 export const store = async (req: Request, res: Response) => {
+    const validationErrors = validationResult(req)
+    if (!validationErrors.isEmpty()) {
+        return res.status(400).send({
+            status: "fail",
+            data: validationErrors.array()
+        })
+    }
     try {
         const product = await prisma.product.create({
         data: {
