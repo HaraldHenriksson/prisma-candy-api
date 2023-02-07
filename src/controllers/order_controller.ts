@@ -64,7 +64,7 @@ export const store = async (req: Request, res: Response) => {
 		})
 
     } catch (err) {
-        res.status(500).send({status: "error", message: "Something went wrong" })
+       return res.status(500).send({status: "error", message: "Something went wrong" })
     }
 }
 
