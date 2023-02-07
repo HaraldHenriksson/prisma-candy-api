@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
 /**
  * /products
  */
-router.use('/product', products)
+router.use('/products', products)
 
 
 /**
