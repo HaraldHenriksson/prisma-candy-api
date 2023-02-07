@@ -3,9 +3,6 @@ import { Request, Response } from 'express'
 import { validationResult } from 'express-validator'
 import prisma from '../prisma'
 
-
-const debug = Debug('prisma-candy-api:order_controller')
-
 // GET ALL ORDERS
 export const index = async (req: Request, res: Response) => {
     try {
