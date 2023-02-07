@@ -60,7 +60,6 @@ export const store = async (req: Request, res: Response) => {
             }
 
         })
-        console.log(req.body.order_items)
         
         res.send({
 			status: "success",
