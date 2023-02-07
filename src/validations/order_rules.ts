@@ -10,6 +10,6 @@ export const orderProductRules = [
     body('customer_address').isString(),
     body('customer_postcode').isString().isLength({ min: 4, max: 6 }).withMessage('Has to be 4-6 chars long'),
     body('customer_city').isString(),
-    body('customer_email').isEmail(),
-    body('order_total').isInt({ min: 1 }),
+    body('customer_email').isEmail().withMessage('Invalid email address'),
+    body('order_total').isInt({ min: 1 }).withMessage('Order total must be a positive integer'),
 ]
