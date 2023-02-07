@@ -8,8 +8,8 @@ export const postProductRules = [
     body('name').isString(),
     body('description').isString(),
     body('price').isInt(),
-    body('images').isJSON(),
+    body('images').isObject(),
     body('stock_status').isString(),
     body('stock_quantity').isInt({ min: 0 }),
-    body('on_sale').optional().isString(),
+    body('on_sale').optional().isBoolean(),
 ]
